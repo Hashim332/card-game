@@ -16,7 +16,6 @@ function App() {
 
   return (
     <div className="text-center mt-10">
-      <div className="m-4">Placeholder</div>
       <GetDeck />
     </div>
   );

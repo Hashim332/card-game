@@ -6,7 +6,6 @@ export default function GetDeck() {
     fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setDeckId(data.deck_id);
         return data; // Return the data for use elsewhere if needed
       });
@@ -19,7 +18,7 @@ export default function GetDeck() {
   }, []);
 
   return (
-    <div>
+    <div className="">
       <div>{deckId}</div>
       <button
         onClick={fetchDeck}
