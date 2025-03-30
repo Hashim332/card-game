@@ -1,22 +1,12 @@
 import GetDeck from "./components/GetDeck";
+import PreloadCards from "./components/PreloadCards";
 
 function App() {
-  /**
-   * Challenge
-   *
-   * Background:
-   * The Deck of Cards API expects us to provide the deck id
-   * of the deck we're playing with so it can remember which
-   * cards we've already drawn, how many are remaining in the
-   * deck, etc.
-   *
-   * Task: save the deck_id from the returned data to a local
-   * variable so we can use it later
-   */
-
   return (
-    <div className="text-center mt-10">
+    <div className="min-h-screen bg-gradient-to-br from-gray-800 via-emerald-900 to-gray-700 text-center pt-10 px-4 text-gray-100">
+      <h1 className="font-extrabold text-4xl">War</h1>
       <GetDeck />
+      <PreloadCards />
     </div>
   );
 }

@@ -11,8 +11,6 @@ type PlayingCard = {
 };
 
 export default function DrawCards({ deckId }: DrawCardsProps) {
-  //draw 2 cards from deckofcard API
-  //use deck id from GetDeck
   const [cardData, setCardData] = useState<PlayingCard[]>([]);
 
   console.log("initial val of card data:", cardData);
@@ -25,21 +23,18 @@ export default function DrawCards({ deckId }: DrawCardsProps) {
       .then((data) => {
         console.log(data);
         setCardData(data.cards);
-        // console.log("card data was fetched");
-        // console.log(cardData);
       });
   }
 
   return (
-    <div className="p-4 flex flex-wrap flex-col justify-center gap-4">
-      <div className="text-lg font-semibold mb-4">draw cards component</div>
+    <div className="p-6 flex flex-wrap flex-col justify-center gap-4">
       <button
         onClick={drawCards}
-        className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition m-2"
+        className="bg-emerald-700 text-white font-bold text-lg px-6 py-3 rounded-lg shadow-lg hover:bg-emerald-600 active:bg-emerald-800 transform hover:scale-105 active:scale-95 transition-all duration-200 mx-auto"
       >
-        Draw cards
+        Draw Cards
       </button>
-      <div className="flex flex-wrap justify-center gap-4">
+      <div className="flex flex-wrap justify-center gap-4 mt-6">
         <CardImages cardData={cardData} />
       </div>
     </div>

@@ -19,12 +19,11 @@ export default function GetDeck() {
 
   return (
     <div className="">
-      <div>{deckId}</div>
       <button
         onClick={fetchDeck}
-        className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition m-4"
+        className="bg-emerald-700 text-white font-bold text-lg px-6 py-3 rounded-lg shadow-lg hover:bg-emerald-600 active:bg-emerald-800 transform hover:scale-105 active:scale-95 transition-all duration-200 m-6"
       >
-        Get new deck
+        Get New Deck
       </button>
       <DrawCards deckId={deckId} />
     </div>

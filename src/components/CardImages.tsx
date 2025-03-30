@@ -1,4 +1,4 @@
-type PlayingCard = {
+export type PlayingCard = {
   code: string;
   image: string;
 };
@@ -13,9 +13,14 @@ export default function CardImages({ cardData }: CardDataProps) {
     cardData.map((cardObject: PlayingCard, index: number) => (
       <img
         key={index}
-        className="flex flex-col w-28 h-auto rounded-lg shadow-lg hover:scale-105 transition duration-300 m-4"
+        className="w-28 h-auto rounded-lg shadow-lg hover:scale-105 transition duration-300 m-4"
         src={cardObject.image}
       />
     ));
-  return <div>{cardData && cardImages}</div>;
+
+  return (
+    <div className="flex flex-col flex-wrap justify-center">
+      {cardData && cardImages}
+    </div>
+  );
 }
