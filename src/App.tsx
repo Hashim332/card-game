@@ -1,4 +1,4 @@
-import GetDeck from "./components/GetDeck";
+import GetDeck from "./components/WarGameSession";
 import PreloadCards from "./components/PreloadCards";
 
 function App() {

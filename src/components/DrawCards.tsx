@@ -1,20 +1,11 @@
-import { useState } from "react";
-import CardImages from "./CardImages";
+import { PlayingCard } from "./WarGameSession";
 
 type DrawCardsProps = {
   deckId: number;
+  setCardData: React.Dispatch<React.SetStateAction<PlayingCard[]>>;
 };
 
-type PlayingCard = {
-  code: string;
-  image: string;
-};
-
-export default function DrawCards({ deckId }: DrawCardsProps) {
-  const [cardData, setCardData] = useState<PlayingCard[]>([]);
-
-  console.log("initial val of card data:", cardData);
-
+export default function DrawCards({ deckId, setCardData }: DrawCardsProps) {
   function drawCards() {
     fetch(
       `https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`
@@ -34,9 +25,6 @@ export default function DrawCards({ deckId }: DrawCardsProps) {
       >
         Draw Cards
       </button>
-      <div className="flex flex-wrap justify-center gap-4 mt-6">
-        <CardImages cardData={cardData} />
-      </div>
     </div>
   );
 }

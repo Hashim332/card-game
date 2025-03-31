@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { PlayingCard } from "./CardImages";
+import { PlayingCard } from "./WarGameSession";
 
 export default function PreloadCards() {
   const [allCards, setAllCards] = useState<PlayingCard[]>([]);
@@ -18,10 +18,11 @@ export default function PreloadCards() {
           });
       });
   }, []);
+
   return (
     <div className="hidden">
-      {allCards.map((cardObj) => {
-        return <img src={cardObj.image} />;
+      {allCards.map((card, index) => {
+        return <img key={index} src={card.image} />;
       })}
     </div>
   );

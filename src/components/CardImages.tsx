@@ -1,7 +1,4 @@
-export type PlayingCard = {
-  code: string;
-  image: string;
-};
+import { PlayingCard } from "./WarGameSession";
 
 interface CardDataProps {
   cardData: PlayingCard[];
@@ -21,6 +18,7 @@ export default function CardImages({ cardData }: CardDataProps) {
   return (
     <div className="flex flex-col flex-wrap justify-center">
       {cardData && cardImages}
+      {/* {cardData && compareCards(cardData[0], cardData[1])} */}
     </div>
   );
 }
