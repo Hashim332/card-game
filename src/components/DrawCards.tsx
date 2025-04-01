@@ -18,13 +18,13 @@ export default function DrawCards({ deckId, setCardData }: DrawCardsProps) {
   }
 
   return (
-    <div className="p-6 flex flex-wrap flex-col justify-center gap-4">
-      <button
-        onClick={drawCards}
-        className="bg-emerald-700 text-white font-bold text-lg px-6 py-3 rounded-lg shadow-lg hover:bg-emerald-600 active:bg-emerald-800 transform hover:scale-105 active:scale-95 transition-all duration-200 mx-auto"
-      >
-        Draw Cards
-      </button>
-    </div>
+    <button
+      onClick={drawCards}
+      className="w-40 bg-emerald-700 text-white font-extrabold text-lg px-6 py-2 rounded-lg shadow-lg 
+             hover:bg-emerald-600 active:bg-emerald-800 transform hover:scale-105 active:scale-95 
+             transition-all duration-200"
+    >
+      Draw Cards
+    </button>
   );
 }

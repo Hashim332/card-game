@@ -47,12 +47,10 @@ export default function WarGameSession() {
     const card2Value: number = cardHeirarchy.indexOf(card2.code[0]);
 
     if (card1Value > card2Value) {
-      return "card 1 wins";
+      return "Computer wins!";
     } else if (card2Value > card1Value) {
-      console.log("card 2 wins");
-      return "card 2 wins";
+      return "User wins!";
     } else {
-      console.log("its a tie!");
       return "It's a tie!";
     }
   }
@@ -63,15 +61,19 @@ export default function WarGameSession() {
   }
 
   return (
-    <div className="flex flex-col h-screen justify-start pt-4 gap-4">
-      <button
-        onClick={fetchDeck}
-        className="bg-emerald-700 text-white font-bold text-lg px-6 py-2 rounded-lg mx-auto w-64 hover:bg-emerald-600 active:bg-emerald-800 transform hover:scale-105 active:scale-95 transition-all duration-200 "
-      >
-        Get New Deck
-      </button>
+    <div className="flex flex-col pt-4 gap-8">
+      <div className="flex justify-between lg:justify-evenly">
+        <button
+          onClick={fetchDeck}
+          className="w-40 bg-emerald-700 text-white font-bold text-lg px-2 py-2 rounded-lg shadow-lg 
+             hover:bg-emerald-600 active:bg-emerald-800 transform hover:scale-105 active:scale-95 
+             transition-all duration-200"
+        >
+          Get New Deck
+        </button>
 
-      <DrawCards setCardData={setCardData} deckId={deckId} />
+        <DrawCards setCardData={setCardData} deckId={deckId} />
+      </div>
 
       <div className="flex flex-wrap justify-center gap-2 mt-2">
         <CardImages cardData={cardData} />

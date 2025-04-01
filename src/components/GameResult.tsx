@@ -3,6 +3,8 @@ type GameResultProps = {
 };
 export default function GameResult({ gameResult }: GameResultProps) {
   return (
-    <h3 className="text-2xl font-semibold">{gameResult && `${gameResult}`}</h3>
+    <h3 className="text-2xl font-semibold animate-glow">
+      {gameResult && `${gameResult}`}
+    </h3>
   );
 }
