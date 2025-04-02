@@ -1,21 +1,23 @@
-import { PlayingCard } from "./WarGameSession";
+// type DrawCardsProps = {
+//   deckId: number;
+//   setCardData: React.Dispatch<React.SetStateAction<PlayingCard[]>>;
+// };
 
 type DrawCardsProps = {
-  deckId: number;
-  setCardData: React.Dispatch<React.SetStateAction<PlayingCard[]>>;
+  drawCards: () => void;
 };
 
-export default function DrawCards({ deckId, setCardData }: DrawCardsProps) {
-  function drawCards() {
-    fetch(
-      `https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setCardData(data.cards);
-      });
-  }
+export default function DrawCards({ drawCards }: DrawCardsProps) {
+  // function drawCards() {
+  //   fetch(
+  //     `https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       setCardData(data.cards);
+  //     });
+  // }
 
   return (
     <button
