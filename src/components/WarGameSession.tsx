@@ -3,6 +3,7 @@ import DrawCards from "./DrawCards";
 import CardImages from "./CardImages";
 import GameResult from "./GameResult";
 import RemainingCards from "./ReaminingCards";
+import Scoreboard from "./Scoreboard";
 
 export type PlayingCard = {
   code: string;
@@ -10,6 +11,12 @@ export type PlayingCard = {
 };
 
 export default function WarGameSession() {
+  const [deckId, setDeckId] = useState(0);
+  const [cardData, setCardData] = useState<PlayingCard[]>([]);
+  const [remainingCards, setRemainingCards] = useState<number>(52);
+  const [gamesPlayed, setGamesPlayed] = useState<number>(0);
+  const [userWins, setUserWins] = useState(0);
+
   function fetchDeck() {
     fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
       .then((res) => res.json())
@@ -17,13 +24,11 @@ export default function WarGameSession() {
         setDeckId(data.deck_id);
         setCardData([]); // Clear cards when getting a new deck
         setRemainingCards(52);
+        setGamesPlayed(0);
+        setUserWins(0);
         return data;
       });
   }
-
-  const [deckId, setDeckId] = useState(0);
-  const [cardData, setCardData] = useState<PlayingCard[]>([]);
-  const [remainingCards, setRemainingCards] = useState<number>(52);
 
   useEffect(() => {
     fetchDeck();
@@ -38,6 +43,7 @@ export default function WarGameSession() {
         console.log(data);
         setCardData(data.cards);
         setRemainingCards(data.remaining);
+        setGamesPlayed((prevGamesPlayed) => prevGamesPlayed + 1);
       });
   }
 
@@ -87,16 +93,19 @@ export default function WarGameSession() {
           Get New Deck
         </button>
 
-        <DrawCards drawCards={drawCards} />
+        <DrawCards drawCards={drawCards} remainingCards={remainingCards} />
       </div>
 
       <RemainingCards remainingCards={remainingCards} />
+      <Scoreboard gamesPlayed={gamesPlayed} userWins={userWins} />
 
       <div className="flex flex-wrap justify-center gap-2 mt-10">
         <CardImages cardData={cardData} />
       </div>
 
       <GameResult gameResult={gameResult} />
+
+      {gamesPlayed}
     </div>
   );
 }
