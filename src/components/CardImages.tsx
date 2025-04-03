@@ -10,13 +10,13 @@ export default function CardImages({ cardData }: CardDataProps) {
     cardData.map((cardObject: PlayingCard, index: number) => (
       <img
         key={index}
-        className="w-28 h-auto rounded-lg shadow-lg hover:scale-105 transition duration-300 m-2"
+        className="w-28 h-auto rounded-lg shadow-lg hover:scale-105 transition duration-300"
         src={cardObject.image}
       />
     ));
 
   return (
-    <div className="flex flex-col flex-wrap justify-center">
+    <div className="flex flex-col flex-wrap justify-center gap-4">
       {cardData && cardImages}
     </div>
   );

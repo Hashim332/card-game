@@ -6,8 +6,6 @@ export default function RemainingCards({
   remainingCards,
 }: RemainingCardsProps) {
   return (
-    <div className="text-xl font-bold m-2">
-      Remaining cards: {remainingCards}
-    </div>
+    <div className="text-xl font-bold">Remaining cards: {remainingCards}</div>
   );
 }

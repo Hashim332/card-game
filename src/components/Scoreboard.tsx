@@ -7,7 +7,7 @@ export default function Scoreboard({ gamesPlayed, userWins }: ScoreboardProps) {
   const computerWins = gamesPlayed - userWins;
 
   return (
-    <div className="flex justify-center gap-12 text-xl my-5">
+    <div className="flex justify-center gap-12 text-xl">
       <div
         className={`px-6 py-3 rounded-lg font-bold ${
           userWins > computerWins
