@@ -56,9 +56,9 @@ export default function WarGameSession() {
     const card2Value: number = cardHeirarchy.indexOf(card2.code[0]);
 
     if (card1Value > card2Value) {
-      return "Computer wins!";
+      return "Computer won this round!";
     } else if (card2Value > card1Value) {
-      return "User wins!";
+      return "User won this round!";
     } else {
       return "It's a tie!";
     }
@@ -70,7 +70,6 @@ export default function WarGameSession() {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setCardData(data.cards);
         setRemainingCards(data.remaining);
         setGamesPlayed((prevGamesPlayed) => prevGamesPlayed + 1);
@@ -78,7 +77,7 @@ export default function WarGameSession() {
         // Update userWins if the user won
         if (data.cards.length === 2) {
           const result = compareCards(data.cards[0], data.cards[1]);
-          if (result === "User wins!") {
+          if (result === "User won this round!") {
             setUserWins((prevUserWins) => prevUserWins + 1);
           }
         }
